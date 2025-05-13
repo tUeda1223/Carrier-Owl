@@ -1,11 +1,22 @@
 # arxivの学問領域の指定
-subject: 'cat:cs.*'
+subject: 'cat:eess.AS OR cat:eess.SP OR cat:cs.SD OR cat:cs.CL'
 
 # 検索キーワード
 keywords:
         kaggle: 3
         resnet: 3
         anomaly detection: 1
+        ASR: 3
+        speech recognition: 3
+        multi-speaker: 3
+        robust: 1
+        source separation: 1
+        source extraction: 1
+        speech separation: 1
+        speech extraction: 1
+        speech enhancement: 1
+        beamforming: 1
+        dereverberation: 1
 
 # 通知の閾値
-score_threshold: 0
+score_threshold: 1
