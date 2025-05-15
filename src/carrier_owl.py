@@ -143,7 +143,7 @@ def get_translated_text(from_lang: str, to_lang: str, from_text: str, driver) ->
             return urllib.parse.unquote(from_text)
         return to_text
     else:
-        return to_text
+        return from_text
 
 def get_text_from_driver(driver) -> str:
     try:
