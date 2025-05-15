@@ -26,7 +26,7 @@ class Result:
     abstract: str
     words: list
     score: float = 0.0
-
+    authors: str
 
 def calc_score(abst: str, keywords: dict) -> (float, list):
     sum_score = 0.0
@@ -56,6 +56,7 @@ def search_keyword(
         url = article['arxiv_url']
         title = article['title']
         abstract = article['summary']
+        authors = article['authors']
         score, hit_keywords = calc_score(abstract, keywords)
         if (score != 0) and (score >= score_threshold):
             title_trans = get_translated_text('ja', 'en', title, driver)
@@ -65,7 +66,7 @@ def search_keyword(
             # abstract_trans = '\n'.join(abstract_trans)
             result = Result(
                     url=url, title=title_trans, abstract=abstract_trans,
-                    score=score, words=hit_keywords)
+                    score=score, words=hit_keywords, authors=authors)
             results.append(result)
     
     # ブラウザ停止
@@ -101,11 +102,13 @@ def notify(results: list, slack_id: str, line_token: str) -> None:
         abstract = result.abstract
         word = result.words
         score = result.score
+        authors = result.authors
 
         text = f'\n score: `{score}`'\
                f'\n hit keywords: `{word}`'\
                f'\n url: {url}'\
                f'\n title:    {title}'\
+               f'\n authors:    {authors}'\
                f'\n abstract:'\
                f'\n \t {abstract}'\
                f'\n {star}'
