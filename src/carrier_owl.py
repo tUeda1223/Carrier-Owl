@@ -25,8 +25,8 @@ class Result:
     title: str
     abstract: str
     words: list
-    score: float = 0.0
     authors: str
+    score: float = 0.0
 
 def calc_score(abst: str, keywords: dict) -> (float, list):
     sum_score = 0.0
