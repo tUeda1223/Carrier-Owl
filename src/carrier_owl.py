@@ -94,7 +94,7 @@ def notify(results: list, slack_id: str, line_token: str) -> None:
     today = datetime.date.today()
     n_articles = len(results)
     text = f'{star}\n \t \t {today}\tnum of articles = {n_articles}\n{star}'
-    send2app(text, slack_id, line_token)
+    # send2app(text, slack_id, line_token)
     # descending
     for result in sorted(results, reverse=True, key=lambda x: x.score):
         url = result.url
@@ -104,14 +104,14 @@ def notify(results: list, slack_id: str, line_token: str) -> None:
         score = result.score
         authors = result.authors
 
-        text = f'\n score: `{score}`'\
+        text += f'\n score: `{score}`'\
                f'\n hit keywords: `{word}`'\
                f'\n url: {url}'\
                f'\n title:    {title}'\
                f'\n authors:    {authors}'\
                f'\n {star}'
 
-        send2app(text, slack_id, line_token)
+    send2app(text, slack_id, line_token)
 
 
 def get_translated_text(from_lang: str, to_lang: str, from_text: str, driver) -> str:
