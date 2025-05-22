@@ -3,9 +3,6 @@ subject: 'cat:eess.AS OR cat:eess.SP OR cat:cs.SD OR cat:cs.CL'
 
 # 検索キーワード
 keywords:
-        kaggle: 3
-        resnet: 3
-        anomaly detection: 1
         CHiME: 3
         ASR: 3
         speech recognition: 3
