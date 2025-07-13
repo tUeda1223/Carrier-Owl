@@ -197,7 +197,8 @@ def main():
     slack_id = os.getenv("SLACK_ID") or args.slack_id
     line_token = os.getenv("LINE_TOKEN") or args.line_token
     notify(results, slack_id, line_token)
-
+    slack = slackweb.Slack(url=slack_id)
+    slack.notify(text=arxiv_query)
 
 if __name__ == "__main__":
     main()
